@@ -20,16 +20,6 @@ public class CloudVendorController
         this.cloudVendorService = cloudVendorService;
     }
 
-    // Read Specific Cloud Vendor Details from DB
-    @GetMapping("/{vendorId}")
-    @ApiOperation(value ="Cloud vendor id", notes="Provide cloud vendor details",
-                    response = ResponseEntity.class)
-    public ResponseEntity<Object> getCloudVendorDetails(@PathVariable("vendorId") String vendorId)
-    {
-       return ResponseHandler.responseBuilder("Requested Vendor Details are given here",
-                HttpStatus.OK, cloudVendorService.getCloudVendor(vendorId));
-    }
-
     // Read All Cloud Vendor Details from DB
     @GetMapping("/")
     public List<CloudVendor> getAllCloudVendorDetails()
